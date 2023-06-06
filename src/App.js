@@ -3,14 +3,17 @@
 // 1ST IMPORT
 import React from 'react';
 import Main from './Main'
+import Header from './Header'
+import Footer from './Footer'
 
 // 2ND CREATE OUR CLASS COMPONENT
 class App extends React.Component {
   render() {
     return (
       <>
-        <h1>Hello from App!</h1>
+        <Header />
         <Main />
+        <Footer />
       </>
     )
   }
