@@ -1,7 +1,7 @@
 import React from 'react';
 import Person from './Person';
 import './Main.css';
-import data from './data/data.json';
+
 
 class Main extends React.Component {
   render() {
