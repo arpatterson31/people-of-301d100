@@ -4,12 +4,12 @@ import Button from 'react-bootstrap/Button';
 
 
 class Person extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
       waves: 0,
-      helpMe: false
+      helpMe: false,
     }
 
   }
@@ -28,26 +28,36 @@ class Person extends React.Component {
     })
   }
 
+  // ** METHODS TO UPDATE STATE OF HELP ME
   gotHelp = () => {
     this.setState({
       helpMe: false
     })
   }
 
-  render(){
+  // HELPER TO CALL THE OPEN MODAL FUNCTION AND PASS IN THE NAME AS THE ARGUMENT
+  handleNameClick = () => {
+    this.props.handleOpenModal(this.props.firstName)
+  }
+
+  render() {
     console.log(this.props);
-    return(
+    return (
       <>
         <article>
-          <h3>{this.props.firstName}</h3>
+          <h3 onClick={this.handleNameClick}>{this.props.firstName}</h3>
           <p>👋 {this.state.waves} Greetings </p>
           <p onClick={this.handleWave}>Say Hello!</p>
-          <img src={this.props.imageURL} alt={this.props.firstName} />
+          <img
+            onClick={this.props.addHearts}
+            src={this.props.imageURL}
+            alt={this.props.firstName}
+          />
           <Button variant="danger" onClick={this.needsHelp}>Help me!</Button>
           <Button onClick={this.gotHelp}>I got help!</Button>
 
           <div>{this.state.helpMe ? 'I NEED HELP!' : ''}</div>
-       
+
         </article>
       </>
     )

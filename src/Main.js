@@ -1,14 +1,19 @@
 import React from 'react';
 import Person from './Person';
-import data from './data/data.json'; // data === [{...}, {...}]
-import './Main.css'
+import './Main.css';
+import data from './data/data.json';
 
 class Main extends React.Component {
   render() {
     return (
       <main>
-        {data.map(personObj => {
-          return <Person firstName={personObj.name} imageURL={personObj.imageURL} />
+        {this.props.data.map(personObj => {
+          return <Person 
+          firstName={personObj.name} 
+          imageURL={personObj.imageURL} 
+          addHearts={this.props.addHearts} 
+          handleOpenModal={this.props.handleOpenModal}
+          />
         })}
       </main>
     )
